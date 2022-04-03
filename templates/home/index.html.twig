@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="main_header">
+        <a class="main_header_button" href="">Категории</a>
+        <img src="/img/main_w/header/Line 1.svg">
+        <a class="main_header_button" href="">Лидеры</a>
+        <img src="/img/main_w/header/Line 1.svg">
+        <a class="main_header_button" href="">Лента</a>
+    </div>
+
+    <section class="main_body">
+        <div>
+            <input class="main_body_input" type="text" placeholder="ЗАДАТЬ ВОПРОС">
+        </div>
+    </section>
+
+    <section class="main_body_category">
+
+        {% for p in products %}
+            <div>
+                <p class="main_body_category_text">{{ p.name }}</p>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section class="main_body_category">
+        {% for p in products %}
+            <div>
+                <p class="main_body_category_text">{{ p.name }}</p>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

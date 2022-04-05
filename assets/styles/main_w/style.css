@@ -159,6 +159,7 @@ input::-webkit-input-placeholder {
     border-radius: 20px;
     display: flex;
     margin-bottom: 60px;
+    overflow-y: hidden;
 }
 
 .questions_avatar{
@@ -175,6 +176,12 @@ input::-webkit-input-placeholder {
 
 .questions_text{
     width: 310px;
+    height: 130px;
+}
+.questions_text p img{
+    height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .questions_text_large, .questions_text_small, .question_text_q{

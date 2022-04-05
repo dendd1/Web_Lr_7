@@ -45,6 +45,26 @@ class AnswerRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @param int $id
+     * @return array
+     * @throws \Doctrine\DBAL\Exception
+     */
+    public function getAnswersOnQuestion(int $id): array
+    {
+        $connection = $this->getEntityManager()->getConnection();
+
+        $sql = 'SELECT *, (SELECT name FROM user WHERE user.id = answer.user_id) as author
+            FROM answer WHERE answer.question_id = :id ORDER BY answer.date;
+            ';
+
+        $resultSet = $connection->prepare($sql)->executeQuery([
+            'id' => $id
+        ]);
+
+        return $resultSet->fetchAllAssociative();
+    }
+
     // /**
     //  * @return Answer[] Returns an array of Answer objects
     //  */

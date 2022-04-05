@@ -5,31 +5,61 @@
 {% block body %}
     <div class="main_header">
         <a class="main_header_button" href="">Категории</a>
-        <img src="/img/main_w/header/Line 1.svg">
+        <img  src="img/main_w/main/Line 1.svg">
         <a class="main_header_button" href="">Лидеры</a>
-        <img src="/img/main_w/header/Line 1.svg">
+        <img  src="img/main_w/main/Line 1.svg">
         <a class="main_header_button" href="">Лента</a>
     </div>
 
     <section class="main_body">
         <div>
             <input class="main_body_input" type="text" placeholder="ЗАДАТЬ ВОПРОС">
+            <img src="img/main_w/main/Поиск значек.png" alt="">
         </div>
     </section>
 
     <section class="main_body_category">
-
-        {% for p in products %}
-            <div>
-                <p class="main_body_category_text">{{ p.name }}</p>
-            </div>
-        {% endfor %}
+        <div>
+            <p class="main_body_category_text">{{ category[0].name }}</p>
+        </div>
+        <div>
+            <p class="main_body_category_text">{{ category[1].name }}</p>
+        </div>
     </section>
 
     <section class="main_body_category">
-        {% for p in products %}
-            <div>
-                <p class="main_body_category_text">{{ p.name }}</p>
+        <div class="main_body_category_text_medium left_b_r" >
+            <p>{{ category[2].name }}</p>
+        </div>
+        <div class="main_body_category_text_medium">
+            <p>{{ category[3].name }}</p>
+        </div>
+        <div class="main_body_category_text_small">
+            <p>{{ category[4].name }}</p>
+        </div>
+        <div class="main_body_category_text_small">
+            <p>{{ category[5].name }}</p>
+        </div>
+        <div class="main_body_category_text_small right_b_r">
+            <p>{{ category[6].name }}</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="questions_header">
+            <a class="questions_header_button" href="">Вопросы участников</a>
+        </div>
+    </section>
+    <section class="questions">
+        {% for q in question %}
+            <div class="questions_content">
+                <img class="questions_avatar" src="img/main_w/pad/Аватар.svg" alt="">
+                <div class="questions_text">
+                    <p class="questions_text_large">{{ q.user.name }}</p>
+                    <p  class="questions_text_small">{{ q.date|date('Y-m-d') }}<img src="img/main_w/pad/Line 3.svg"> <a href="question/{{ q.id }}">4 ответа</a> </p>
+                </div>
+                <img class="question_line" src="img/main_w/pad/Line 3.svg" alt="">
+                <a class="question_text_q" > {{ q.title }}</a>
             </div>
         {% endfor %}
     </section>

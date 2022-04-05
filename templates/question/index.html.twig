@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuestionController!{% endblock %}
+
+{% block body %}
+    <div class="main_header">
+        <a class="main_header_button" href="/">Категории</a>
+        <img src="/img/question_w/Line 1.svg" alt="">
+        <a class="main_header_button" href="">Лидеры</a>
+        <img src="/img/question_w/Line 1.svg" alt="">
+        <a class="main_header_button" href="">Лента</a>
+    </div>
+
+    <section class="questions">
+        <div class="questions_content">
+            <img class="questions_avatar" src="/img/main_w/pad/Аватар.svg" alt="">
+            <div class="questions_text">
+                <p class="questions_text_large">{{ question.user.name }}</p>
+                <p class="questions_text_small">{{ question.date|date('Y-m-d') }}</p>
+            </div>
+            <img class="question_line" src="/img/main_w/pad/Line 3.svg" alt="">
+            <a class="question_text_q"> {{ question.title }}</a>
+        </div>
+        <div class="questions_main_text">
+            <p>
+                {{ question.text }}
+                <br>
+                1.Дано натуральное число (более четырех знаков):<br>
+                – найти первую и последнюю цифры числа;<br>
+                – верно ли, что сумма цифр этого числа больше 8?<br>
+                <br>
+                2. Найти все трехзначные числа такие, что при делении на 2 дают остаток 1, при делении на 3 – остаток 2,
+                а само число делится на 5.
+                <br>
+                <br>
+            </p>
+
+        </div>
+        <div class="buttons_line">
+            <button class="question_button">
+                Ответить
+            </button>
+            <button class="question_button">
+                <p>Нравится</p> <img src="/img/question_w/Like.png" alt="">
+            </button>
+        </div>
+    </section>
+
+    <section class="questions">
+        <p class="count">2 Ответа</p>
+
+        {% for a in answer %}
+            <div class="questions_content">
+                <img class="questions_avatar" src="/img/main_w/pad/Аватар.svg" alt="">
+                <div class="questions_text">
+                    <p class="questions_text_large">{{a.author}}</p>
+                    <p class="questions_text_small">{{a.date}}</p>
+                </div>
+            </div>
+            <div class="questions_main_text">
+                <p>
+                    {{ a.text }}
+                </p>
+            </div>
+            <div class="buttons_line">
+                <button class="question_button">
+                    <p>Нравится</p> <img src="/img/question_w/Like.png" alt="">
+                </button>
+            </div>
+        {% endfor %}
+
+    </section>
+{% endblock %}
